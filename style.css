@@ -1,0 +1,147 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+html{
+    font-size: 62.5%;
+    /*Means 1 rem = 10px*/
+    overflow-x: hidden;
+}
+body{
+    overflow-x: hidden;
+}
+/*============================================
+          HEADER MAIN TAG
+==============================================*/
+.header{
+    padding: 0 4.8rem;
+    height: 10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightslategray;
+}
+#header #logo{
+    height: 10rem;
+}
+.Navbar-list{
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+}
+/*============================================
+          NAVEBAR LIST
+==============================================*/
+.nav-link:link,
+.Navbar-list:visited{
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: black;
+    transition: all 0.5s;
+}
+.nav-link:hover,
+.nav-link:active{
+    color:red;
+    
+}
+/*============================================
+    mobile navbar btn start
+==============================================*/
+
+.mobile-btn{
+    width: 3rem;
+    height: 3rem;
+    color: black;
+}
+.mobile-nav-btn{
+    display: none;
+    background: transparent;
+    cursor: pointer;
+}
+.mobile-btn[name="close-circle-outline"]{
+    display: none;
+}
+/*============================================
+HERO AND SERVICES SECTION START
+==============================================*/
+
+#section-hero, #section-Serivice{
+    padding: 9.6rem 0;
+    background-color: lightgray;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#section-Serivice{
+    background-color: lightpink;
+}
+#section-hero p,#section-Serivice p{
+    font-size: 3rem;
+}
+/*============================================
+    Responsive Code SECTION START
+==============================================*/
+/*990*/
+@media (max-width: 62em){
+    .mobile-nav-btn{
+        display: block;
+        border: 3px solid black;
+        color: black;
+    }
+    .header{
+        position: relative;
+    }
+    .header #logo{
+        width: 20%;
+    }
+    #Navbar{
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(48, 117, 177);
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       /*To get Transition*/
+       transform: translateX(100%);
+       transition : all 0.5s linear;
+
+       opacity: 0;
+       visibility: hidden;
+       pointer-events: none;
+    }
+    .Navbar-list{
+        flex-direction: column;
+        align-items: center;
+    }
+    .active #Navbar{
+        transform: translateX(0);
+        opacity: 2;
+        visibility: visible;
+        pointer-events: auto;
+    }
+    .active .mobile-nav-btn .mobile-btn[name = "close-circle-outline"]{
+        display: block;
+    }
+    .active .mobile-nav-btn .mobile-btn[name = "menu-outline"]{
+        display: none
+    }
+}
+/*BELOW 560 PX FOR MORE RESPONSIVE*/
+@media (max-width: 35em){
+    .header{
+        padding: 0 3.2rem;
+    }
+    .header #logo{
+        width: 60%;
+    }
+}
